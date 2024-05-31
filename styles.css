@@ -1,0 +1,202 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f8; /* Color de fondo claro */
+    font-size: 12px; /* Ajusta el tamaño de la fuente de todo el proyecto */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #343940; /* Color de fondo oscuro */
+    color: #e0e0e0; /* Color de texto claro */
+}
+
+.sidebar {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2f3b47;
+    padding-top: 20px;
+    z-index: 1001;
+    transition: background-color 0.3s, color 0.3s, width 0.3s;
+}
+
+.sidebar.collapsed {
+    width: 50px; /* Ancho reducido cuando está colapsada */
+}
+
+.sidebar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #ccd7df;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar.collapsed a {
+    justify-content: center; /* Centra los iconos cuando la barra está colapsada */
+    padding: 15px 10px; /* Ajusta el padding */
+}
+
+.sidebar.collapsed a i {
+    margin-right: 0; /* Quita el margen derecho de los iconos cuando está colapsada */
+    font-size: 24px; /* Ajusta el tamaño de los iconos cuando está colapsada */
+}
+
+.sidebar a i {
+    margin-right: 10px;
+    font-size: 24px; /* Ajusta este valor para agrandar los iconos */
+}
+
+.sidebar.collapsed .link-text {
+    display: none; /* Oculta el texto de los enlaces cuando está colapsada */
+}
+
+.sidebar a:hover {
+    background-color: transparent; /* Quita el cambio de color de fondo */
+    color: #6f8faf; /* Nuevo color del texto al pasar el ratón (puedes ajustar este color) */
+}
+
+.sidebar.dark-mode {
+    background-color: #24292e; /* Color de fondo de la barra lateral en modo oscuro */
+}
+
+.sidebar.dark-mode a {
+    color: #e0e0e0; /* Color de texto de los enlaces en la barra lateral en modo oscuro */
+}
+
+.sidebar.dark-mode a:hover {
+    background-color: transparent; /* Quita el cambio de color de fondo */
+    color: #a1c1df; /* Nuevo color del texto al pasar el ratón en modo oscuro (puedes ajustar este color) */
+}
+
+.topbar {
+    width: calc(100% - 180px); /* Ajusta el ancho de la topbar para que considere la sidebar */
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 180px; /* Ajusta la posición de la topbar */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s, width 0.3s, left 0.3s;
+}
+
+.topbar.collapsed {
+    width: calc(100% - 50px); /* Ajusta el ancho de la topbar cuando la sidebar está colapsada */
+    left: 50px;
+}
+
+.topbar.dark-mode {
+    background-color: #37404a;
+    color: #ffffff;
+}
+
+.topbar .search-container {
+    position: relative;
+    width: 300px; /* Ajusta el ancho del contenedor de búsqueda */
+    margin-right: 20px;
+}
+
+.topbar .search-container .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.topbar .search-container input {
+    margin-left: 20px; /* Agrega 2px de margen a la izquierda */
+    width: 100%;
+    padding: 8px 8px 8px 30px; /* Ajusta el padding para dejar espacio para el icono */
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+    border: none; /* Quita el borde */
+    border-radius: 5px;
+    background-color: #f1f1f1; /* Color de fondo con contraste ligero */
+    transition: background-color 0.3s, color 0.3s;
+    width: 200px;
+}
+
+.topbar .search-container input:focus {
+    outline: none; /* Elimina el borde azul al enfocar */
+    background-color: #e0e0e0; /* Contraste ligero al enfocar */
+}
+
+.topbar.dark-mode .search-container input {
+    background-color: #555; /* Color de fondo con contraste ligero en modo oscuro */
+    color: #e0e0e0;
+}
+
+.topbar.dark-mode .search-container input:focus {
+    background-color: #666; /* Contraste ligero al enfocar en modo oscuro */
+}
+
+.topbar.dark-mode .search-container .search-icon {
+    color: #bbb;
+}
+
+button#theme-toggle {
+    margin-left: 20px !important; /* Agrega 2px de margen a la izquierda */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button#theme-toggle:focus {
+    outline: none;
+}
+
+button#theme-toggle i {
+    color: #474e51;
+    transition: color 0.3s;
+}
+
+button#theme-toggle.dark-mode i {
+    color: #ffffff;
+}
+
+button#menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 0; /* Ajusta este valor según sea necesario */
+}
+
+button#menu-toggle:focus {
+    outline: none;
+}
+
+button#menu-toggle i {
+    color: #474e51;
+    transition: color 0.3s;
+}
+
+button#menu-toggle.dark-mode i {
+    color: #ffffff;
+}
+
+.content {
+    margin-left: 180px; /* Ajusta el margen del contenido principal para que considere la sidebar */
+    padding-top: 70px;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s, margin-left 0.3s;
+}
+
+.content.collapsed {
+    margin-left: 50px; /* Ajusta el margen del contenido principal cuando la barra lateral está colapsada */
+}
+
+.content.dark-mode {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
