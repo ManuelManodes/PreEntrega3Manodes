@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra Horizontal y Lateral</title>
+    <title>Proyecto Combinado</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Puedes usar una librería de iconos como Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="sidebar">
-        <a href="#"><i class="fas fa-home"></i> <span class="link-text">Inicio</span></a>
-        <a href="#"><i class="fas fa-book-open-reader"></i> <span class="link-text">Test vocacional</span></a>
-        <a href="#"><i class="fas fa-id-card"></i> <span class="link-text">Agregar Apoderado</span></a>
-        <a href="#"><i class="fas fa-list-check"></i> <span class="link-text">Incidencias</span></a>
+        <img src="images/logo.png" alt="Logo" class="sidebar-logo">
+        <a href="#inicio" id="inicio-link"><i class="fas fa-home"></i> <span class="link-text">Inicio</span></a>
+        <a href="#test-vocacional" id="test-vocacional-link"><i class="fas fa-book-open-reader"></i> <span class="link-text">Test vocacional</span></a>
+        <a href="#agregar-apoderado" id="agregar-apoderado-link"><i class="fas fa-id-card"></i> <span class="link-text">Agregar Apoderado</span></a>
+        <a href="#incidencias" id="incidencias-link"><i class="fas fa-list-check"></i> <span class="link-text">Incidencias</span></a>
     </div>
     <div class="topbar">
         <button id="menu-toggle">
@@ -27,8 +28,8 @@
             <i id="theme-icon" class="fas fa-moon"></i>
         </button>
     </div>
-    <div class="content">
-        <!-- Contenido principal aquí -->
+    <div class="content" id="content">
+        <!-- Contenido dinámico se cargará aquí -->
     </div>
     <script src="main.js"></script>
 </body>

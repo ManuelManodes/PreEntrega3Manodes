@@ -200,3 +200,14 @@ button#menu-toggle.dark-mode i {
     background-color: #1c1c1c;
     color: #e0e0e0;
 }
+
+/* Nueva clase para el logo en la sidebar */
+.sidebar-logo {
+    width: 100px; /* Ajusta este valor según el tamaño deseado */
+    margin-bottom: 20px;
+    margin-left: 20px; /* Ajusta este valor para el espaciado */
+}
+
+.sidebar.collapsed .sidebar-logo {
+    display: none; /* Oculta el logo cuando la sidebar está colapsada */
+}
