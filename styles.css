@@ -25,8 +25,24 @@ body.dark-mode {
     transition: background-color 0.3s, color 0.3s, width 0.3s;
 }
 
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-logo {
+    width: 80%;
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
 .sidebar.collapsed {
     width: 50px; /* Ancho reducido cuando está colapsada */
+}
+
+.sidebar.collapsed .sidebar-logo {
+    width: 30px; /* Ajusta el tamaño del logo cuando la sidebar está colapsada */
 }
 
 .sidebar a {
@@ -113,7 +129,7 @@ body.dark-mode {
     color: #888;
 }
 
-.topbar .search-container input {
+.topbar .search-container input.custom-input {
     margin-left: 20px; /* Agrega 2px de margen a la izquierda */
     width: 100%;
     padding: 8px 8px 8px 30px; /* Ajusta el padding para dejar espacio para el icono */
@@ -125,17 +141,17 @@ body.dark-mode {
     width: 200px;
 }
 
-.topbar .search-container input:focus {
+.topbar .search-container input.custom-input:focus {
     outline: none; /* Elimina el borde azul al enfocar */
     background-color: #e0e0e0; /* Contraste ligero al enfocar */
 }
 
-.topbar.dark-mode .search-container input {
+.topbar.dark-mode .search-container input.custom-input {
     background-color: #555; /* Color de fondo con contraste ligero en modo oscuro */
     color: #e0e0e0;
 }
 
-.topbar.dark-mode .search-container input:focus {
+.topbar.dark-mode .search-container input.custom-input:focus {
     background-color: #666; /* Contraste ligero al enfocar en modo oscuro */
 }
 
@@ -201,13 +217,164 @@ button#menu-toggle.dark-mode i {
     color: #e0e0e0;
 }
 
-/* Nueva clase para el logo en la sidebar */
-.sidebar-logo {
-    width: 100px; /* Ajusta este valor según el tamaño deseado */
-    margin-bottom: 20px;
-    margin-left: 20px; /* Ajusta este valor para el espaciado */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-.sidebar.collapsed .sidebar-logo {
-    display: none; /* Oculta el logo cuando la sidebar está colapsada */
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .card {
+    background-color: #37404a;
+    color: #ffffff;
+}
+
+.custom-input {
+    margin-left: 20px; /* Ajusta el margen para que sea consistente */
+    width: 300px; /* Cambia este valor para modificar el ancho de los inputs */
+    padding: 8px 8px 8px 30px; /* Ajusta el padding para dejar espacio para el icono */
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+    border: none; /* Quita el borde */
+    border-radius: 5px;
+    background-color: #f1f1f1; /* Color de fondo con contraste ligero */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-input:focus {
+    outline: none; /* Elimina el borde azul al enfocar */
+    background-color: #e0e0e0; /* Contraste ligero al enfocar */
+}
+
+body.dark-mode .custom-input {
+    background-color: #555; /* Color de fondo con contraste ligero en modo oscuro */
+    color: #e0e0e0;
+}
+
+body.dark-mode .custom-input:focus {
+    background-color: #666; /* Contraste ligero al enfocar en modo oscuro */
+}
+
+.form-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Ajusta este valor para espaciar verticalmente los elementos */
+}
+
+.submit-button {
+    margin-left: 10px; /* Ajusta el margen para que sea consistente */
+    padding: 4px 8px; /* Ajusta el padding para hacer el botón más pequeño */
+    font-size: 10px; /* Ajusta el tamaño de la fuente */
+    border: none; /* Quita el borde */
+    border-radius: 5px;
+    background-color: #009879; /* Color de fondo */
+    color: white; /* Color del texto */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #007a63; /* Color de fondo al pasar el ratón */
+}
+
+.submit-button:focus {
+    outline: none; /* Elimina el borde azul al enfocar */
+}
+
+/* Estilos específicos para la tabla */
+.styled-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    background-color: #ffffff; /* Fondo claro por defecto */
+    color: #333333; /* Color del texto */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .styled-table {
+    background-color: #2f3b47; /* Fondo oscuro en modo oscuro */
+    color: #e0e0e0; /* Color del texto en modo oscuro */
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.styled-table thead tr {
+    background-color: #f3f4f8; /* Fondo claro para el encabezado */
+    color: #333333;
+    text-align: left;
+}
+
+body.dark-mode .styled-table thead tr {
+    background-color: #37404a; /* Fondo oscuro para el encabezado en modo oscuro */
+    color: #e0e0e0;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+body.dark-mode .styled-table tbody tr {
+    border-bottom: 1px solid #444444;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9; /* Fondo claro para filas pares */
+}
+
+body.dark-mode .styled-table tbody tr:nth-of-type(even) {
+    background-color: #353b45; /* Fondo oscuro para filas pares en modo oscuro */
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879; /* Línea final */
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879; /* Color del texto en la fila activa */
+}
+
+/* Responsividad para la tabla */
+@media (max-width: 600px) {
+    .styled-table thead {
+        display: none;
+    }
+
+    .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .styled-table tr {
+        margin-bottom: 15px;
+    }
+
+    .styled-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .styled-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
 }

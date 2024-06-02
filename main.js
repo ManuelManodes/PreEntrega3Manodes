@@ -21,21 +21,21 @@ document.addEventListener('DOMContentLoaded', () => {
         `,
         'agregar-apoderado': `
             <h2>Agregar Apoderado</h2>
-            <form id="formUsuario">
+            <form id="formUsuario" class="form-vertical">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required><br><br>
+                <input type="text" id="nombre" name="nombre" class="custom-input" required>
                 
                 <label for="edad">Edad:</label>
-                <input type="number" id="edad" name="edad" required><br><br>
+                <input type="number" id="edad" name="edad" class="custom-input" required>
                 
                 <label for="ciudad">Ciudad:</label>
-                <input type="text" id="ciudad" name="ciudad" required><br><br>
+                <input type="text" id="ciudad" name="ciudad" class="custom-input" required>
                 
                 <button type="submit">Guardar</button>
             </form>
             
             <h2>Datos de Usuario</h2>
-            <table id="tablaUsuarios" border="1">
+            <table id="tablaUsuarios" class="styled-table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -123,14 +123,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const celdaNombre = document.createElement('td');
                 celdaNombre.textContent = usuario.nombre;
+                celdaNombre.setAttribute('data-label', 'Nombre');
                 fila.appendChild(celdaNombre);
                 
                 const celdaEdad = document.createElement('td');
                 celdaEdad.textContent = usuario.edad;
+                celdaEdad.setAttribute('data-label', 'Edad');
                 fila.appendChild(celdaEdad);
                 
                 const celdaCiudad = document.createElement('td');
                 celdaCiudad.textContent = usuario.ciudad;
+                celdaCiudad.setAttribute('data-label', 'Ciudad');
                 fila.appendChild(celdaCiudad);
                 
                 tbody.appendChild(fila);

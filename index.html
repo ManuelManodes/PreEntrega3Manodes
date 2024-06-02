@@ -10,7 +10,9 @@
 </head>
 <body>
     <div class="sidebar">
-        <img src="images/logo.png" alt="Logo" class="sidebar-logo">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Logo" class="sidebar-logo">
+        </div>
         <a href="#inicio" id="inicio-link"><i class="fas fa-home"></i> <span class="link-text">Inicio</span></a>
         <a href="#test-vocacional" id="test-vocacional-link"><i class="fas fa-book-open-reader"></i> <span class="link-text">Test vocacional</span></a>
         <a href="#agregar-apoderado" id="agregar-apoderado-link"><i class="fas fa-id-card"></i> <span class="link-text">Agregar Apoderado</span></a>
@@ -22,14 +24,46 @@
         </button>
         <div class="search-container">
             <i class="fas fa-search search-icon"></i>
-            <input id="main-input" type="text" placeholder="Buscar...">
+            <input id="main-input" type="text" placeholder="Buscar..." class="custom-input">
         </div>
         <button id="theme-toggle">
             <i id="theme-icon" class="fas fa-moon"></i>
         </button>
     </div>
     <div class="content" id="content">
-        <!-- Contenido dinámico se cargará aquí -->
+        <div class="dashboard-grid">
+            <div class="card" id="agregar-apoderado">
+                <h2>Agregar Apoderado</h2>
+                <form id="formUsuario" class="form-vertical">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="custom-input" required>
+                    
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" class="custom-input" required>
+                    
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" name="ciudad" class="custom-input" required>
+                    
+                    <button type="submit" class="submit-button">Guardar</button>
+                </form>
+                
+                <h2>Datos de Usuario</h2>
+                <table id="tablaUsuarios" class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Ciudad</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                
+                <h2>Gráfico de Edades</h2>
+                <canvas id="graficoUsuarios" width="400" height="200"></canvas>
+            </div>
+            <!-- Añade más tarjetas (cards) según sea necesario -->
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
