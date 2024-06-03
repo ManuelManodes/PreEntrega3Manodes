@@ -1,5 +1,4 @@
-/* styles.css */
-
+/* Estilos generales del proyecto */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -13,6 +12,7 @@ body.dark-mode {
     color: #e0e0e0; /* Color de texto claro */
 }
 
+/* Estilos para la sidebar */
 .sidebar {
     height: 100%;
     width: 180px;
@@ -91,6 +91,7 @@ body.dark-mode {
     color: #a1c1df; /* Nuevo color del texto al pasar el ratón en modo oscuro (puedes ajustar este color) */
 }
 
+/* Estilos para la topbar */
 .topbar {
     width: calc(100% - 180px); /* Ajusta el ancho de la topbar para que considere la sidebar */
     background-color: white;
@@ -159,6 +160,7 @@ body.dark-mode {
     color: #bbb;
 }
 
+/* Botón de tema */
 button#theme-toggle {
     margin-left: 20px !important; /* Agrega 2px de margen a la izquierda */
     background: none;
@@ -180,6 +182,7 @@ button#theme-toggle.dark-mode i {
     color: #ffffff;
 }
 
+/* Botón del menú */
 button#menu-toggle {
     background: none;
     border: none;
@@ -201,6 +204,7 @@ button#menu-toggle.dark-mode i {
     color: #ffffff;
 }
 
+/* Estilos para el contenido */
 .content {
     margin-left: 180px; /* Ajusta el margen del contenido principal para que considere la sidebar */
     padding-top: 70px;
@@ -213,7 +217,7 @@ button#menu-toggle.dark-mode i {
 }
 
 .content.dark-mode {
-    background-color: #1c1c1c;
+    background-color: #343940;
     color: #e0e0e0;
 }
 
@@ -227,21 +231,24 @@ button#menu-toggle.dark-mode i {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
     transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px; /* Agrega espacio entre las tarjetas y la topbar */
+    border: 1px solid #ddd; /* Agrega un borde */
 }
 
 body.dark-mode .card {
     background-color: #37404a;
     color: #ffffff;
+    border: 1px solid #444; /* Agrega un borde en modo oscuro */
 }
 
+/* Estilos para los inputs */
 .custom-input {
-    margin-left: 20px; /* Ajusta el margen para que sea consistente */
-    width: 300px; /* Cambia este valor para modificar el ancho de los inputs */
-    padding: 8px 8px 8px 30px; /* Ajusta el padding para dejar espacio para el icono */
-    font-size: 14px; /* Ajusta el tamaño de la fuente */
-    border: none; /* Quita el borde */
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
     border-radius: 5px;
     background-color: #f1f1f1; /* Color de fondo con contraste ligero */
     transition: background-color 0.3s, color 0.3s;
@@ -261,33 +268,82 @@ body.dark-mode .custom-input:focus {
     background-color: #666; /* Contraste ligero al enfocar en modo oscuro */
 }
 
-.form-vertical {
+/* Estilos específicos para el formulario */
+.form-horizontal {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Ajusta este valor para espaciar verticalmente los elementos */
+    gap: 20px;
 }
 
-.submit-button {
-    margin-left: 10px; /* Ajusta el margen para que sea consistente */
-    padding: 4px 8px; /* Ajusta el padding para hacer el botón más pequeño */
-    font-size: 10px; /* Ajusta el tamaño de la fuente */
-    border: none; /* Quita el borde */
+.form-horizontal fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.form-horizontal legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.form-horizontal label {
+    flex: 1 0 200px; /* Ajusta el ancho del label */
+    text-align: right; /* Alinea el texto a la derecha */
+    margin-right: 10px; /* Espacio entre el label y el input */
+}
+
+.form-horizontal input,
+.form-horizontal textarea,
+.form-horizontal select {
+    flex: 3 0 300px; /* Ajusta el ancho del input */
+    padding: 8px;
     border-radius: 5px;
-    background-color: #009879; /* Color de fondo */
-    color: white; /* Color del texto */
+    border: 1px solid #ddd;
+}
+
+body.dark-mode .form-horizontal input,
+body.dark-mode .form-horizontal textarea,
+body.dark-mode .form-horizontal select {
+    background-color: #555;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode .form-horizontal label {
+    color: #e0e0e0; /* Color claro para los labels */
+}
+
+/* Estilos para los botones */
+.submit-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #009879;
+    color: white;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .submit-button:hover {
-    background-color: #007a63; /* Color de fondo al pasar el ratón */
+    background-color: #007a63;
 }
 
 .submit-button:focus {
-    outline: none; /* Elimina el borde azul al enfocar */
+    outline: none;
 }
 
-/* Estilos específicos para la tabla */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
 .styled-table {
     border-collapse: separate;
     border-spacing: 0;
@@ -377,4 +433,149 @@ body.dark-mode .styled-table tbody tr:nth-of-type(even) {
         font-weight: bold;
         text-align: left;
     }
+}
+
+/* Estilos para secciones ocultas */
+.hidden {
+    display: none;
+}
+
+.search-apoderado {
+    margin-bottom: 20px;
+}
+
+.search-apoderado label {
+    margin-right: 10px;
+}
+
+.search-apoderado input {
+    margin-right: 10px;
+}
+
+/* Estilo para los elementos h2 en las secciones de contenido */
+.content-section h2 {
+    margin-top: 20px; /* Ajusta este valor según la altura de tu topbar */
+}
+
+/* Estilos específicos para el selector de alumnos en el test vocacional */
+#student-select {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f1f1f1; /* Fondo claro */
+    color: #333; /* Texto oscuro */
+}
+
+body.dark-mode #student-select {
+    background-color: #555; /* Fondo oscuro */
+    color: #e0e0e0; /* Texto claro */
+    border: 1px solid #444; /* Borde oscuro */
+}
+
+#test-container, #result-container {
+    margin-top: 20px;
+}
+
+#next-btn, #retry-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #009879;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#next-btn:hover, #retry-btn:hover {
+    background-color: #007a63;
+}
+
+.hidden {
+    display: none;
+}
+
+#result-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto; /* Centrará el formulario horizontalmente */
+    padding: 20px;
+    border: 1px solid #ddd; /* Añadir un borde alrededor del formulario */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco */
+}
+
+form fieldset {
+    border: 1px solid #ddd; /* Bordes alrededor de los fieldsets */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+form legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input[type="file"] {
+    padding: 0;
+}
+
+form input, form textarea, form select {
+    width: 100%; /* Para que los campos ocupen todo el ancho disponible */
+}
+
+body.dark-mode .form-vertical {
+    background-color: #343940;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode form fieldset {
+    border: 1px solid #555;
+}
+
+body.dark-mode form legend {
+    color: #e0e0e0;
+}
+
+body.dark-mode form label {
+    color: #e0e0e0;
+}
+
+body.dark-mode form input, 
+body.dark-mode form textarea, 
+body.dark-mode form select {
+    background-color: #555;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode form input:focus, 
+body.dark-mode form textarea:focus, 
+body.dark-mode form select:focus {
+    background-color: #666;
+    border: 1px solid #666;
+}
+
+/* Estilos para los gráficos */
+canvas {
+    max-width: 600px;
+    margin: 20px auto;
+    display: block;
 }

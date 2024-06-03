@@ -32,39 +32,192 @@
     </div>
     <div class="content" id="content">
         <div class="dashboard-grid">
-            <div class="card" id="agregar-apoderado">
+            <div class="card content-section" id="inicio">
+                <h2>Inicio</h2>
+                <p>Bienvenido al panel de control.</p>
+                <canvas id="chartIncidencias"></canvas>
+                <canvas id="chartVocacional"></canvas>
+                <canvas id="chartUsuarios"></canvas>
+            </div>
+            <div class="card content-section hidden" id="test-vocacional">
+                <h2>Test Vocacional</h2>
+                <div id="test-container">
+                    <select id="select-answer"></select>
+                    <div id="question-container"></div>
+                    <button id="next-btn">Siguiente</button>
+                </div>
+                <div id="result-container" class="hidden">
+                    <h2>Resultado del Test</h2>
+                    <p id="result-text"></p>
+                    <button id="retry-btn">Reintentar</button>
+                </div>
+            </div>
+            <div class="card content-section hidden" id="agregar-apoderado">
                 <h2>Agregar Apoderado</h2>
+
+                <div class="search-apoderado">
+                    <label for="buscarRut">Buscar por Rut:</label>
+                    <input type="text" id="buscarRut" name="buscarRut" class="custom-input">
+                    <button id="buscarRutButton" class="submit-button">Buscar</button>
+                </div>
+
                 <form id="formUsuario" class="form-vertical">
+                    <label for="rut">Rut:</label>
+                    <input type="text" id="rut" name="rut" class="custom-input" required>
+                    <span class="error-message" id="error-rut"></span>
+
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" class="custom-input" required>
+                    <span class="error-message" id="error-nombre"></span>
                     
-                    <label for="edad">Edad:</label>
-                    <input type="number" id="edad" name="edad" class="custom-input" required>
-                    
-                    <label for="ciudad">Ciudad:</label>
-                    <input type="text" id="ciudad" name="ciudad" class="custom-input" required>
-                    
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" class="custom-input" required>
+                    <span class="error-message" id="error-apellido"></span>
+
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" class="custom-input" required>
+                    <span class="error-message" id="error-correo"></span>
+
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" class="custom-input" required>
+                    <span class="error-message" id="error-telefono"></span>
+
+                    <label for="curso">Curso:</label>
+                    <select id="curso" name="curso" class="custom-input" required>
+                        <option value="">Seleccione un curso</option>
+                        <option value="Matemáticas">Matemáticas</option>
+                        <option value="Ciencias">Ciencias</option>
+                        <option value="Historia">Historia</option>
+                    </select>
+                    <span class="error-message" id="error-curso"></span>
+
+                    <label for="nombre-ejemplo">Nombre de Ejemplo:</label>
+                    <select id="nombre-ejemplo" name="nombre-ejemplo" class="custom-input" required>
+                        <!-- Las opciones se llenarán dinámicamente -->
+                    </select>
+                    <span class="error-message" id="error-nombre-ejemplo"></span>
+
                     <button type="submit" class="submit-button">Guardar</button>
                 </form>
-                
+
                 <h2>Datos de Usuario</h2>
                 <table id="tablaUsuarios" class="styled-table">
                     <thead>
                         <tr>
+                            <th>Rut</th>
                             <th>Nombre</th>
-                            <th>Edad</th>
-                            <th>Ciudad</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Curso</th>
+                            <th>Nombre de Ejemplo</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
                 </table>
-                
-                <h2>Gráfico de Edades</h2>
-                <canvas id="graficoUsuarios" width="400" height="200"></canvas>
             </div>
-            <!-- Añade más tarjetas (cards) según sea necesario -->
+            <div class="card content-section hidden" id="incidencias">
+                <h2>Incidencias</h2>
+                <form id="incidenciaForm" class="form-vertical">
+                    <fieldset>
+                        <legend>Información General del Colegio</legend>
+                        <label for="nombre-colegio">Nombre del Colegio:</label>
+                        <input type="text" id="nombre-colegio" name="nombre-colegio" class="custom-input" required>
+                        <label for="direccion-colegio">Dirección:</label>
+                        <input type="text" id="direccion-colegio" name="direccion-colegio" class="custom-input" required>
+                        <label for="codigo-centro">Código del Centro:</label>
+                        <input type="text" id="codigo-centro" name="codigo-centro" class="custom-input" required>
+                        <label for="telefono-centro">Teléfono de Contacto:</label>
+                        <input type="tel" id="telefono-centro" name="telefono-centro" class="custom-input" required>
+                        <label for="correo-centro">Correo Electrónico del Centro:</label>
+                        <input type="email" id="correo-centro" name="correo-centro" class="custom-input" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Datos del Inspector</legend>
+                        <label for="nombre-inspector">Nombre del Inspector:</label>
+                        <input type="text" id="nombre-inspector" name="nombre-inspector" class="custom-input" required>
+                        <label for="id-inspector">Identificación del Inspector:</label>
+                        <input type="text" id="id-inspector" name="id-inspector" class="custom-input" required>
+                        <label for="telefono-inspector">Teléfono de Contacto:</label>
+                        <input type="tel" id="telefono-inspector" name="telefono-inspector" class="custom-input" required>
+                        <label for="correo-inspector">Correo Electrónico del Inspector:</label>
+                        <input type="email" id="correo-inspector" name="correo-inspector" class="custom-input" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Detalles de la Incidencia</legend>
+                        <label for="fecha-incidencia">Fecha de la Incidencia:</label>
+                        <input type="date" id="fecha-incidencia" name="fecha-incidencia" class="custom-input" required>
+                        <label for="hora-incidencia">Hora de la Incidencia:</label>
+                        <input type="time" id="hora-incidencia" name="hora-incidencia" class="custom-input" required>
+                        <label for="lugar-incidencia">Lugar de la Incidencia (Aula, Patio, Cafetería, etc.):</label>
+                        <input type="text" id="lugar-incidencia" name="lugar-incidencia" class="custom-input" required>
+                        <label for="tipo-incidencia">Tipo de Incidencia (Disciplinaria, Seguridad, Infraestructura, etc.):</label>
+                        <input type="text" id="tipo-incidencia" name="tipo-incidencia" class="custom-input" required>
+                        <label for="descripcion-incidencia">Descripción Detallada de la Incidencia:</label>
+                        <textarea id="descripcion-incidencia" name="descripcion-incidencia" class="custom-input" required></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Personas Involucradas</legend>
+                        <label for="nombre-estudiantes">Nombre del Estudiante(s):</label>
+                        <input type="text" id="nombre-estudiantes" name="nombre-estudiantes" class="custom-input" required>
+                        <label for="grado-seccion">Grado y Sección:</label>
+                        <input type="text" id="grado-seccion" name="grado-seccion" class="custom-input" required>
+                        <label for="nombre-profesores">Nombre del Profesor(es):</label>
+                        <input type="text" id="nombre-profesores" name="nombre-profesores" class="custom-input" required>
+                        <label for="personal-apoyo">Personal de Apoyo Involucrado:</label>
+                        <input type="text" id="personal-apoyo" name="personal-apoyo" class="custom-input" required>
+                        <label for="otros-testigos">Otros Testigos:</label>
+                        <input type="text" id="otros-testigos" name="otros-testigos" class="custom-input" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Acciones Tomadas</legend>
+                        <label for="medidas-inmediatas">Medidas Inmediatas Adoptadas:</label>
+                        <input type="text" id="medidas-inmediatas" name="medidas-inmediatas" class="custom-input" required>
+                        <label for="autoridades-notificadas">Autoridades Notificadas (Sí/No):</label>
+                        <select id="autoridades-notificadas" name="autoridades-notificadas" class="custom-input" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="sí">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                        <label for="descripcion-notificacion">Descripción de la Notificación (Fecha, Hora, Persona Contactada):</label>
+                        <textarea id="descripcion-notificacion" name="descripcion-notificacion" class="custom-input" required></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Documentación Adicional</legend>
+                        <label for="fotografias-incidencia">Fotografías de la Incidencia (si aplica):</label>
+                        <input type="file" id="fotografias-incidencia" name="fotografias-incidencia" class="custom-input" multiple>
+                        <label for="documentos-adjuntos">Documentos Adjuntos (Informes, Notificaciones, etc.):</label>
+                        <input type="file" id="documentos-adjuntos" name="documentos-adjuntos" class="custom-input" multiple>
+                        <label for="firma-inspector">Firma del Inspector:</label>
+                        <input type="text" id="firma-inspector" name="firma-inspector" class="custom-input" required>
+                        <label for="fecha-elaboracion">Fecha de Elaboración del Informe:</label>
+                        <input type="date" id="fecha-elaboracion" name="fecha-elaboracion" class="custom-input" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Comentarios Adicionales</legend>
+                        <label for="observaciones">Observaciones:</label>
+                        <textarea id="observaciones" name="observaciones" class="custom-input" required></textarea>
+                        <label for="recomendaciones">Recomendaciones:</label>
+                        <textarea id="recomendaciones" name="recomendaciones" class="custom-input" required></textarea>
+                    </fieldset>
+                    <button type="submit" class="submit-button">Registrar Incidencia</button>
+                </form>
+                <h2>Bitácora de Incidencias</h2>
+                <table id="incidenciasTable" class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Colegio</th>
+                            <th>Descripción</th>
+                            <th>Fecha y Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody id="incidenciasTableBody"></tbody>
+                </table>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>
+    <script src="incidencias.js"></script>
+    <script src="test-vocacional.js"></script>
 </body>
 </html>
