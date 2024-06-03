@@ -579,3 +579,13 @@ canvas {
     margin: 20px auto;
     display: block;
 }
+
+/* Estilos para los contenedores de gráficos */
+.chart-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chart-container h3 {
+    margin-bottom: 10px;
+}

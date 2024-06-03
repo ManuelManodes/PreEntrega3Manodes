@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Combinado</title>
+    <title>Plataforma gestión educacional</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -35,9 +35,18 @@
             <div class="card content-section" id="inicio">
                 <h2>Inicio</h2>
                 <p>Bienvenido al panel de control.</p>
-                <canvas id="chartIncidencias"></canvas>
-                <canvas id="chartVocacional"></canvas>
-                <canvas id="chartUsuarios"></canvas>
+                <div class="chart-container">
+                    <h3>Incidencias</h3>
+                    <canvas id="chartIncidencias"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Test Vocacional</h3>
+                    <canvas id="chartVocacional"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Usuarios</h3>
+                    <canvas id="chartUsuarios"></canvas>
+                </div>
             </div>
             <div class="card content-section hidden" id="test-vocacional">
                 <h2>Test Vocacional</h2>

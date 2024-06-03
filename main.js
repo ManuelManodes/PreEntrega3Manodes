@@ -303,13 +303,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }]
         };
 
-        // Datos de Usuarios
+        // Datos de Usuarios por Curso
         const users = JSON.parse(localStorage.getItem('users')) || [];
+        const cursos = users.map(user => user.curso);
+        const uniqueCursos = [...new Set(cursos)];
         const usuariosData = {
-            labels: users.map(user => user.nombre),
+            labels: uniqueCursos,
             datasets: [{
                 label: 'Usuarios',
-                data: users.map(() => 1),
+                data: uniqueCursos.map(curso => users.filter(user => user.curso === curso).length),
                 backgroundColor: 'rgba(255, 159, 64, 0.2)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1
